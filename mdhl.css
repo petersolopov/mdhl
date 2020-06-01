@@ -1,0 +1,40 @@
+.mdhl-heading {
+  color: #673ab7;
+  font-weight: bold;
+}
+
+.mdhl-bullet {
+  color: #f44336;
+}
+
+.mdhl-link {
+  color: #64b5f6;
+}
+
+.mdhl-strong {
+  font-weight: bold;
+}
+
+.mdhl-em {
+  font-style: italic;
+}
+
+.mdhl-blockCode {
+  color: #4caf50;
+}
+
+.mdhl-fences {
+  color: #4caf50;
+}
+
+.mdhl-blockquote {
+  color: #607d8b;
+}
+
+.mdhl-html {
+  color: #f57f17;
+}
+
+.mdhl-inlineCode {
+  color: #f57f17;
+}

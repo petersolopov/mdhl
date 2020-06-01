@@ -1,0 +1,52 @@
+{
+  "name": "mdhl",
+  "version": "0.0.1",
+  "description": "~1KB markdown syntax highlighter",
+  "source": "mdhl.js",
+  "main": "dist/mdhl.js",
+  "module": "dist/mdhl.esm.js",
+  "unpkg": "dist/mdhl.umd.js",
+  "files": [
+    "mdhl.js",
+    "mdhl.css",
+    "dist/mdhl.js",
+    "dist/mdhl.esm.js",
+    "dist/mdhl.umd.js"
+  ],
+  "scripts": {
+    "build": "microbundle build --no-sourcemap -f es,cjs,umd",
+    "dev": "microbundle watch --no-sourcemap -f es,cjs,umd",
+    "prettier:check": "prettier --check mdhl.js",
+    "prettier:write": "prettier --write mdhl.js",
+    "release": "npx standard-version"
+  },
+  "engines": {
+    "node": ">=12.17.0"
+  },
+  "browserslist": [
+    "defaults",
+    "not IE 11",
+    "not IE_Mob 11",
+    "maintained node versions"
+  ],
+  "keywords": [
+    "md",
+    "markdown",
+    "highlight",
+    "highlighter",
+    "syntax"
+  ],
+  "author": "Peter Solopov <peter@solopov.dev>",
+  "homepage": "https://github.com/petersolopov/mdhl",
+  "bugs": "https://github.com/petersolopov/mdhl/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/petersolopov/mdhl"
+  },
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "microbundle": "^0.12.0",
+    "prettier": "^2.0.5"
+  }
+}
