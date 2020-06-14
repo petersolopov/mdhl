@@ -17,7 +17,7 @@ npm i mdhl
 hotlinking from unpkg:
 
 ```js
-import { higlight } from 'https://unpkg.com/mdhl?module' 
+import { higlight } from "https://unpkg.com/mdhl?module";
 ```
 
 ## Usage
@@ -27,11 +27,9 @@ import { highlight } from "mdhl";
 
 const markdown = "# hi there!";
 
-highlight(markdown); // => "<span class='mdhl-header'># hi there!</span>" 
+highlight(markdown); // => "<span class='mdhl-heading'># hi there!</span>"
 ```
-
 
 ## License
 
 [MIT](/LICENSE)
-
