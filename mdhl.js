@@ -32,14 +32,14 @@ const inlineRegexps = {
   text: /^(`+|[^`])(?:[\s\S]*?(?:(?=[\\<!\[`*]|\b_|$)|[^ ](?= {2,}\n))|(?= {2,}\n))/,
 };
 
-const createSpan = (content, tokenType) =>
-  `<span class="mdhl-${tokenType}">${content}</span>`;
+const createElement = (tag, content, tokenType) =>
+  `<${tag} class="mdhl-${tokenType}">${content}</${tag}>`;
 
 // prettier-ignore
 export const defaultRenderers = {
-  heading: (token, renderers, renderLine) => createSpan(renderLine(token.text, renderers), token.type),
-  lheading: (token, renderers, renderLine) => createSpan(renderLine(token.text, renderers), 'heading'),
-  paragraph: (token, renderers, renderLine) => createSpan(renderLine(token.text, renderers), token.type),
+  heading: (token, renderers, renderLine) => createElement('b', renderLine(token.text, renderers), token.type),
+  lheading: (token, renderers, renderLine) => createElement('b', renderLine(token.text, renderers), 'heading'),
+  paragraph: (token, renderers, renderLine) => createElement('span', renderLine(token.text, renderers), token.type),
 
   list: (token, renderers, renderLine) => {
     const items = token.text
@@ -49,18 +49,21 @@ export const defaultRenderers = {
         const rest = item.substr(1);
         const parsed = renderLine(rest, renderers);
 
-        return `${createSpan(bullet, 'bullet')}${parsed}`
+        return `${createElement('span', bullet, 'bullet')}${parsed}`
       })
       .join('\n');
 
-    return createSpan(items, 'list')
+    return createElement('span', items, 'list')
   },
 
   space: (token) => token.text,
   text: (token) => token.text,
 
-  defaultInlineRenderer: token => createSpan(token.text, token.type),
-  defaultBlockRenderer: token => createSpan(escape(token.text), token.type),
+  em: (token) => createElement('i', token.text, token.type),
+  strong: (token) => createElement('b', token.text, token.type),
+
+  defaultInlineRenderer: token => createElement('span', token.text, token.type),
+  defaultBlockRenderer: token => createElement('span', escape(token.text), token.type),
 };
 
 function renderLine(line, renderers) {
