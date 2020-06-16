@@ -1,4 +1,4 @@
-import Yace from "https://unpkg.com/yace@0.0.1/dist/esm/index.esm.js";
+import Yace from "https://unpkg.com/yace@0.0.4/dist/esm/index.esm.js";
 import { highlight } from "../mdhl.js";
 
 const value = `# h1 Heading
@@ -45,7 +45,7 @@ Markup
 ======
 
 <div>some html</div>
-`
+`;
 
 const editor = new Yace("#editor", {
   style: {
@@ -57,12 +57,9 @@ const editor = new Yace("#editor", {
 editor.textarea.focus();
 editor.textarea.spellcheck = false;
 
-// fixme
-editor.pre.style.fontFamily = 'inherit';
-
-const highlighted = document.querySelector('.highlighted')
-highlighted.innerHTML = highlight(value)
+const highlighted = document.querySelector(".highlighted");
+highlighted.innerHTML = highlight(value);
 
 editor.onUpdate((value) => {
   highlighted.innerHTML = highlight(value);
-})
+});
