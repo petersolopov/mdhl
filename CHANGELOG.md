@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.5](https://github.com/petersolopov/mdhl/compare/v0.0.4...v0.0.5) (2020-06-16)
+
+
+### Bug Fixes
+
+* do not escape fences otherwise you can not use external highlighters, escape language only and codeInFences default renderer ([35f8a94](https://github.com/petersolopov/mdhl/commit/35f8a945f532819b2a5584f12d42d375818f4f3b))
+
 ### [0.0.4](https://github.com/petersolopov/mdhl/compare/v0.0.3...v0.0.4) (2020-06-16)
 
 ### [0.0.3](https://github.com/petersolopov/mdhl/compare/v0.0.2...v0.0.3) (2020-06-16)
