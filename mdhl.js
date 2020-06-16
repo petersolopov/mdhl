@@ -58,12 +58,13 @@ export const defaultRenderers = {
 
   fences: (token, renderers) => {
     const [, startFences, language, newLine, code, endFences] = token.cap;
-    const codeInFences = renderers.codeInFences(code, language)
+    const codeInFences = renderers.codeInFences(code, language);
+    const escapedLanguage = escape(language);
 
-    return escape(`${startFences}${language}${newLine}${codeInFences}${endFences}`)
+    return `${startFences}${escapedLanguage}${newLine}${codeInFences}${endFences}`
   },
 
-  codeInFences: (code, language) => code,
+  codeInFences: (code, language) => escape(code),
 
   space: (token) => token.text,
   text: (token) => token.text,
