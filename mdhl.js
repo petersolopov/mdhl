@@ -10,7 +10,7 @@ function escape(unsafe) {
 const blockRegexps = {
   space: /^\n+/,
   blockCode: /^( {4}[^\n]+\n*)+/,
-  fences: /^ {0,3}(`{3,}(?=[^`\n]*\n)|~{3,})([^\n]*)\n(?:|([\s\S]*?)\n)(?: {0,3}\1[~`]* *(?:\n+|$)|$)/,
+  fences: /^ {0,3}(`{3,}(?=[^`\n]*\n)|~{3,})([^\n]*)(\n)(|[\s\S]*?\n)( {0,3}\1[~`]* *(?:\n+|$)|$)/,
   heading: /^#{1,6} [^\n]+(\n|$)/,
   lheading: /^[^\n]+\n {0,3}(=+|-+) *(\n+|$)/,
   hr: /^(([-_*]) *){3,}(\n+|$)/,
@@ -55,6 +55,15 @@ export const defaultRenderers = {
 
     return createElement('span', items, 'list')
   },
+
+  fences: (token, renderers) => {
+    const [, startFences, language, newLine, code, endFences] = token.cap;
+    const codeInFences = renderers.codeInFences(code, language)
+
+    return escape(`${startFences}${language}${newLine}${codeInFences}${endFences}`)
+  },
+
+  codeInFences: (code, language) => code,
 
   space: (token) => token.text,
   text: (token) => token.text,
