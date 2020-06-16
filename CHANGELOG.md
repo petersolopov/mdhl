@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.3](https://github.com/petersolopov/mdhl/compare/v0.0.2...v0.0.3) (2020-06-16)
+
+
+### Features
+
+* add codeInFences renderer ([bad1d07](https://github.com/petersolopov/mdhl/commit/bad1d07a1e420d2c5bef3031334d3cfa9e23df0b))
+
 ### [0.0.2](https://github.com/petersolopov/mdhl/compare/v0.0.1...v0.0.2) (2020-06-14)
 
 
