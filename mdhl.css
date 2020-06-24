@@ -10,10 +10,13 @@
   color: #1976d2;
 }
 
-.mdhl-fences,
+.mdhl-inlineCode {
+  color: #f44336;
+}
+
+.mdhl-codeInFences,
 .mdhl-blockCode,
-.mdhl-inlineCode,
 .mdhl-blockquote,
 .mdhl-html {
-  color: #455a64;
+  color: #6a737d;
 }
