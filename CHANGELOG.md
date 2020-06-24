@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.6](https://github.com/petersolopov/mdhl/compare/v0.0.5...v0.0.6) (2020-06-24)
+
+
+### Features
+
+* add codeInFences class ([215c333](https://github.com/petersolopov/mdhl/commit/215c333536b6c24338e1e61d5b29cdb89e5dbb9f))
+* export escape, createElement, renderLine, blockLexer, render functions ([9d9f454](https://github.com/petersolopov/mdhl/commit/9d9f454162db80c297af72b10a44a29258a8fcda))
+* update example ([75df66d](https://github.com/petersolopov/mdhl/commit/75df66da3495a9184957be6f9394c969a215243d))
+* update styles ([0d8bfe7](https://github.com/petersolopov/mdhl/commit/0d8bfe7df6cb0482005101bb4c066e01e1e5987d))
+
 ### [0.0.5](https://github.com/petersolopov/mdhl/compare/v0.0.4...v0.0.5) (2020-06-16)
 
 

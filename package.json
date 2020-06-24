@@ -1,6 +1,6 @@
 {
   "name": "mdhl",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "~1KB markdown syntax highlighter",
   "source": "mdhl.js",
   "main": "dist/mdhl.js",
