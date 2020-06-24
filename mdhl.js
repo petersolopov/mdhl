@@ -1,4 +1,4 @@
-function escape(unsafe) {
+export function escape(unsafe) {
   return unsafe
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
@@ -32,7 +32,7 @@ const inlineRegexps = {
   text: /^(`+|[^`])(?:[\s\S]*?(?:(?=[\\<!\[`*]|\b_|$)|[^ ](?= {2,}\n))|(?= {2,}\n))/,
 };
 
-const createElement = (tag, content, tokenType) =>
+export const createElement = (tag, content, tokenType) =>
   `<${tag} class="mdhl-${tokenType}">${content}</${tag}>`;
 
 // prettier-ignore
@@ -76,7 +76,7 @@ export const defaultRenderers = {
   defaultBlockRenderer: token => createElement('span', escape(token.text), token.type),
 };
 
-function renderLine(line, renderers) {
+export function renderLine(line, renderers) {
   let outputLine = "";
 
   while (line) {
@@ -109,7 +109,7 @@ function renderLine(line, renderers) {
   return outputLine;
 }
 
-function blockLexer(src) {
+export function blockLexer(src) {
   const tokens = [];
   src = src.replace(/^ +$/gm, "");
 
@@ -135,7 +135,7 @@ function blockLexer(src) {
   return tokens;
 }
 
-function render(tokens, renderers) {
+export function render(tokens, renderers) {
   return tokens
     .map((token) => {
       const renderer = renderers[token.type] || renderers.defaultBlockRenderer;
