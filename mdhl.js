@@ -37,6 +37,8 @@ const createElement = (tag, content, tokenType) =>
 
 // prettier-ignore
 export const defaultRenderers = {
+  codeInFences: (code, language) => createElement('span', escape(code), 'codeInFences'),
+
   heading: (token, renderers, renderLine) => createElement('b', renderLine(token.text, renderers), token.type),
   lheading: (token, renderers, renderLine) => createElement('b', renderLine(token.text, renderers), 'heading'),
   paragraph: (token, renderers, renderLine) => createElement('span', renderLine(token.text, renderers), token.type),
@@ -63,8 +65,6 @@ export const defaultRenderers = {
 
     return `${startFences}${escapedLanguage}${newLine}${codeInFences}${endFences}`
   },
-
-  codeInFences: (code, language) => escape(code),
 
   space: (token) => token.text,
   text: (token) => token.text,
