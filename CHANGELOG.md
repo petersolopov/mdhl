@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.7](https://github.com/petersolopov/mdhl/compare/v0.0.6...v0.0.7) (2026-07-16)
+
+
+### Bug Fixes
+
+* preserve whitespace-only lines and indented fence markers ([f870e38](https://github.com/petersolopov/mdhl/commit/f870e38587ea398c7b761fb8f1dcc00055b02d02))
+
 ### [0.0.6](https://github.com/petersolopov/mdhl/compare/v0.0.5...v0.0.6) (2020-06-24)
 
 
