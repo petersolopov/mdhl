@@ -1,0 +1,32 @@
+name: publish
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: tag to publish
+        required: true
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.ref || github.ref }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          registry-url: https://registry.npmjs.org/
+      # OIDC trusted publishing needs npm >= 11.5.1, bundled with Node 24.18+.
+      # Do NOT self-upgrade npm globally here — it corrupts npm's own tree (missing sigstore).
+      - run: npm install
+      - run: npm test
+      - run: npm run build
+      - run: npm publish
