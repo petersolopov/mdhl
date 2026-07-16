@@ -16,6 +16,9 @@
   "scripts": {
     "build": "microbundle build --no-sourcemap -f es,cjs,umd",
     "dev": "microbundle watch --no-sourcemap -f es,cjs,umd",
+    "test": "node --test --disable-warning=MODULE_TYPELESS_PACKAGE_JSON test/*.test.js",
+    "pretest:dist": "npm run build",
+    "test:dist": "MDHL_TARGET=dist/mdhl.esm.js node --test --disable-warning=MODULE_TYPELESS_PACKAGE_JSON test/*.test.js",
     "prettier:check": "prettier --check mdhl.js",
     "prettier:write": "prettier --write mdhl.js",
     "release": "npx standard-version"
