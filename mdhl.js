@@ -10,7 +10,7 @@ export function escape(unsafe) {
 const blockRegexps = {
   space: /^\n+/,
   blockCode: /^( {4}[^\n]+\n*)+/,
-  fences: /^ {0,3}(`{3,}(?=[^`\n]*\n)|~{3,})([^\n]*)(\n)(|[\s\S]*?\n)( {0,3}\1[~`]* *(?:\n+|$)|$)/,
+  fences: /^( {0,3})(`{3,}(?=[^`\n]*\n)|~{3,})([^\n]*)(\n)(|[\s\S]*?\n)( {0,3}\2[~`]* *(?:\n+|$)|$)/,
   heading: /^#{1,6} [^\n]+(\n|$)/,
   lheading: /^[^\n]+\n {0,3}(=+|-+) *(\n+|$)/,
   hr: /^(([-_*]) *){3,}(\n+|$)/,
@@ -59,11 +59,11 @@ export const defaultRenderers = {
   },
 
   fences: (token, renderers) => {
-    const [, startFences, language, newLine, code, endFences] = token.cap;
+    const [, indent, startFences, language, newLine, code, endFences] = token.cap;
     const codeInFences = renderers.codeInFences(code, language);
     const escapedLanguage = escape(language);
 
-    return `${startFences}${escapedLanguage}${newLine}${codeInFences}${endFences}`
+    return `${indent}${startFences}${escapedLanguage}${newLine}${codeInFences}${endFences}`
   },
 
   space: (token) => token.text,
@@ -111,7 +111,6 @@ export function renderLine(line, renderers) {
 
 export function blockLexer(src) {
   const tokens = [];
-  src = src.replace(/^ +$/gm, "");
 
   while (src) {
     const matched = Object.keys(blockRegexps).some((type) => {
